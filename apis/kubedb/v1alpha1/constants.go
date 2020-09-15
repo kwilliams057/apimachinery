@@ -57,6 +57,12 @@ const (
 	ElasticsearchIngestNodePrefix = "ingest"
 	ElasticsearchDataNodePrefix   = "data"
 	ElasticsearchMasterNodePrefix = "master"
+	ElasticsearchNodeRoleMaster   = "node.role.master"
+	ElasticsearchNodeRoleIngest   = "node.role.ingest"
+	ElasticsearchNodeRoleData     = "node.role.data"
+	ElasticsearchNodeRoleSet      = "set"
+	// 26GB, 26 * 1024 * 1024 * 1024 = 27917287424
+	ElasticsearchMaxHeapSize = 27917287424
 
 	MongoDBShardPort           = 27017
 	MongoDBConfigdbPort        = 27017
