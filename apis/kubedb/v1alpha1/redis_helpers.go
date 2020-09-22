@@ -238,17 +238,6 @@ func (r *Redis) setDefaultAffinity(podTemplate *ofst.PodTemplateSpec, labels map
 						TopologyKey: corev1.LabelHostname,
 					},
 				},
-				// Prefer to not schedule multiple pods on the node with same zone
-				{
-					Weight: 50,
-					PodAffinityTerm: corev1.PodAffinityTerm{
-						Namespaces: []string{r.Namespace},
-						LabelSelector: &metav1.LabelSelector{
-							MatchLabels: labels,
-						},
-						TopologyKey: topology.LabelZone,
-					},
-				},
 			},
 		},
 	}
