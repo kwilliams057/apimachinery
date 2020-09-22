@@ -48,21 +48,38 @@ const (
 	JobTypeBackup  = "backup"
 	JobTypeRestore = "restore"
 
-	ElasticsearchRestPort          = 9200
-	ElasticsearchRestPortName      = "http"
-	ElasticsearchTransportPort     = 9300
-	ElasticsearchTransportPortName = "transport"
-	ElasticsearchMetricsPort       = 9600
-	ElasticsearchMetricsPortName   = "metrics"
-	ElasticsearchIngestNodePrefix  = "ingest"
-	ElasticsearchDataNodePrefix    = "data"
-	ElasticsearchMasterNodePrefix  = "master"
-	ElasticsearchNodeRoleMaster    = "node.role.master"
-	ElasticsearchNodeRoleIngest    = "node.role.ingest"
-	ElasticsearchNodeRoleData      = "node.role.data"
-	ElasticsearchNodeRoleSet       = "set"
-	// 26GB, 26 * 1024 * 1024 * 1024 = 27917287424
+	ElasticsearchRestPort                        = 9200
+	ElasticsearchRestPortName                    = "http"
+	ElasticsearchTransportPort                   = 9300
+	ElasticsearchTransportPortName               = "transport"
+	ElasticsearchMetricsPort                     = 9600
+	ElasticsearchMetricsPortName                 = "metrics"
+	ElasticsearchIngestNodePrefix                = "ingest"
+	ElasticsearchDataNodePrefix                  = "data"
+	ElasticsearchMasterNodePrefix                = "master"
+	ElasticsearchNodeRoleMaster                  = "node.role.master"
+	ElasticsearchNodeRoleIngest                  = "node.role.ingest"
+	ElasticsearchNodeRoleData                    = "node.role.data"
+	ElasticsearchNodeRoleSet                     = "set"
+	ElasticsearchConfigDir                       = "/usr/share/elasticsearch/config"
+	ElasticsearchTempConfigDir                   = "/elasticsearch/temp-config"
+	ElasticsearchCustomConfigDir                 = "/elasticsearch/custom-config"
+	ElasticsearchDataDir                         = "/usr/share/elasticsearch/data"
+	ElasticsearchOpendistroSecurityConfigDir     = "/usr/share/elasticsearch/plugins/opendistro_security/securityconfig"
+	ElasticsearchSearchGuardSecurityConfigDir    = "/usr/share/elasticsearch/plugins/search-guard-%v/sgconfig"
+	ElasticsearchOpendistroReadallMonitorRole    = "readall_and_monitor"
+	ElasticsearchSearchGuardReadallMonitorRoleV7 = "SGS_READALL_AND_MONITOR"
+	ElasticsearchSearchGuardReadallMonitorRoleV6 = "sg_readall_and_monitor"
+
+	// Ref:
+	//	- https://www.elastic.co/guide/en/elasticsearch/reference/7.6/heap-size.html#heap-size
+	//	- no more than 50% of your physical RAM
+	//	- no more than 32GB that the JVM uses for compressed object pointers (compressed oops)
+	//	- no more than 26GB for zero-based compressed oops;
+	// 26 GB is safe on most systems, 26 * 1024 * 1024 * 1024 = 27917287424
 	ElasticsearchMaxHeapSize = 27917287424
+	// 128MB, 128 * 1024 * 1024 = 134217728
+	ElasticsearchMinHeapSize = 134217728
 
 	MongoDBShardPort           = 27017
 	MongoDBConfigdbPort        = 27017
